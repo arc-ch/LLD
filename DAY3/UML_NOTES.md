@@ -3,19 +3,20 @@
 
 ## 📘 Formal Definition:
 
-**UML (Unified Modeling Language)** is a standardized modeling language used to **visualize, specify, construct**, and **document** the structure and behavior of software systems.
+**UML (Unified Modeling Language)** is a standardized modeling language used to **visualize, specify, construct**
+and **document** the structure and behavior of software systems.
 
-It provides a set of **graphic notation techniques** to create **abstract models** of systems, covering both **static and dynamic** aspects.
+It provides a set of **graphic notation techniques** to create **abstract models** of systems, covering both
+**static and dynamic** aspects.
 
----
 
 ## 🧭 Understanding
 
-Think of UML as a **toolkit of diagrams** that helps software developers and designers **map out how a system works**, before or alongside writing the actual code.
+Think of UML as a **toolkit of diagrams** that helps software developers and designers **map out how a system works**,
+before or alongside writing the actual code.
 
 It's like **planning a journey with a map** 🗺️ — you get a **clear picture** of where everything is and how it all connects.
 
----
 
 ## 🏠 Real-life Analogy
 
@@ -40,27 +41,27 @@ In the same way, **UML diagrams are the blueprints of software systems**. They h
 
 UML diagrams are divided into **two main categories**, each serving a different purpose in modeling software systems:
 
----
-
 ## 1️⃣ Structural Diagrams 🏗️
 
-These describe the **static structure** of a system — what it contains, how different parts relate to each other, and how data is organized.
+These describe the **static structure** of a system — what it contains, how different parts relate to each other, 
+and how data is organized.
 
-They are like the **architectural blueprints** of the system, showing the **foundation**, components, and their connections. Structural diagrams focus on the **elements that exist** in the system (like **classes, objects, and hardware**), rather than what happens during execution.
+They are like the **architectural blueprints** of the system, showing the **foundation**, components, and their
+connections. Structural diagrams focus on the **elements that exist** in the system (like **classes, objects, 
+and hardware**), rather than what happens during execution.
 
 ---
 
 ## 2️⃣ Behavioral Diagrams 🎭
 
-These describe the **dynamic behavior** of a system — how it behaves over time, how users interact with it, and how parts communicate during execution.
+These describe the **dynamic behavior** of a system — how it behaves over time, how users interact with it, and 
+how parts communicate during execution.
 
-They are like the **scripts and animations** in a movie 🎬 — showing what happens, when it happens, and who is involved. Behavioral diagrams focus on **actions, interactions, processes, and state changes**.
-
----
-
-Of course! Here's the **last two sections** — *Structural Diagrams* and *Behavioral Diagrams* — rewritten exactly as you had them, but now formatted neatly in **tables with emojis**, while keeping all your original wording:
+They are like the **scripts and animations** in a movie 🎬 — showing what happens, when it happens, and who is 
+involved. Behavioral diagrams focus on **actions, interactions, processes, and state changes**.
 
 ---
+
 
 ## 🏗️ Different Structural Diagrams
 
