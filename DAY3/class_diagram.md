@@ -6,9 +6,7 @@ A UML Class Diagram provides a high-level overview of the system architecture. I
 
 Class diagrams support various design activities including domain modeling, data modeling, and architectural representation of systems. These diagrams are often created during the early stages of the software development lifecycle and refined as the project progresses.
 
-Looking at a class diagram, you must quickly be able to understand the system's structure and how different components interact with each other. This is particularly useful for new team members or stakeholders who need to get up to speed with the system's design regardless of understanding the underlying code.
-
-In this section, we will explore the various components of UML Class Diagrams, including classes, attributes, methods, and relationships. We will also discuss the notations used to represent these elements and how they can be effectively utilized in software design.
+Looking at a class diagram, you must quickly be** able to understand the system's structure and how different components interact with each other**. This is particularly **useful for new team members or stakeholders** who need to get up to speed with the system's design **regardless of understanding the underlying code.**
 
 
 # 🏷️ UML Class Notations
