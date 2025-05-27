@@ -104,5 +104,22 @@ int main() {
     mongo->save(cart); // Save to MongoDB
     file->save(cart);  // Save to File
 
+    // --- Cleanup begins here ---
+
+    // Delete the printer and persistence objects
+    delete printer;
+    delete db;
+    delete mongo;
+    delete file;
+
+    // Delete products in cart
+    for (auto p : cart->getProducts()) {
+        delete p;
+    }
+
+    // Delete cart itself
+    delete cart;
+
     return 0;
 }
+
