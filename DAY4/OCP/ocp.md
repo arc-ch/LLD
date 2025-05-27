@@ -55,7 +55,7 @@ public:
 
 * Each time a new region is added, this method **must be modified**.
 * Risk of **breaking existing functionality**.
-* Violates **OCP** and **SRP**.
+* Violates **OCP**.
 * Not easily **testable** or **scalable**.
 
 ---
