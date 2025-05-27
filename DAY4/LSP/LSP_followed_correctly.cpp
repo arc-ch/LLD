@@ -102,19 +102,43 @@ public:
     }
 };
 
+// int main() {
+//     vector<WithdrawableAccount*> withdrawableAccounts;
+//     withdrawableAccounts.push_back(new SavingAccount());
+//     withdrawableAccounts.push_back(new CurrentAccount());
+
+//     vector<DepositOnlyAccount*> depositOnlyAccounts;
+//     depositOnlyAccounts.push_back(new FixedTermAccount());
+
+//     BankClient* client = new BankClient (withdrawableAccounts, depositOnlyAccounts);
+//     client->processTransactions();
+
+//     return 0;
+// }
+
 int main() {
-    vector<WithdrawableAccount*> withdrawableAccounts;
-    withdrawableAccounts.push_back(new SavingAccount());
-    withdrawableAccounts.push_back(new CurrentAccount());
+    // Creating subclass instances but referring to them using base class pointers
+    // to demonstrate proper LSP usage — these types guarantee substitutability.
 
-    vector<DepositOnlyAccount*> depositOnlyAccounts;
-    depositOnlyAccounts.push_back(new FixedTermAccount());
+    // SEE BELOW REF TYPE IS OF PARENT BUT WHEN USING NEW, CALLING THE ACTUAL NEEDED FUNC THAT IS BASICALLY WHAT LSP WANTS TO SAY
 
-    BankClient* client = new BankClient (withdrawableAccounts, depositOnlyAccounts);
+    // WithdrawableAccount includes both deposit() and withdraw()
+    WithdrawableAccount* savings = new SavingAccount();       // LSP: SavingAccount IS-A WithdrawableAccount
+    WithdrawableAccount* current = new CurrentAccount();      // LSP: CurrentAccount IS-A WithdrawableAccount
+
+    // DepositOnlyAccount includes only deposit()
+    DepositOnlyAccount* fixed = new FixedTermAccount();       // LSP: FixedTermAccount IS-A DepositOnlyAccount
+
+    // Group accounts by capability — avoids type checking and respects interface contracts
+    vector<WithdrawableAccount*> withdrawableAccounts = { savings, current };
+    vector<DepositOnlyAccount*> depositOnlyAccounts = { fixed };
+
+    BankClient* client = new BankClient(withdrawableAccounts, depositOnlyAccounts);
     client->processTransactions();
 
     return 0;
 }
+
 
     
     
