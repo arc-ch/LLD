@@ -65,10 +65,13 @@ public:
 ### 1️⃣ Create a Tax Strategy Interface
 
 ```cpp
+#include <iostream>
+using namespace std;
+
+// Tax strategy interface
 class TaxCalculator {
 public:
-    virtual double calculate(double amount) const = 0;
-    virtual ~TaxCalculator() = default;
+    virtual double calculateTax(double amount) = 0;
 };
 ```
 
@@ -77,31 +80,31 @@ public:
 ### 2️⃣ Create Region-Specific Implementations
 
 ```cpp
-class IndiaTax : public TaxCalculator {
+// Region-specific tax calculators
+class IndiaTaxCalculator : public TaxCalculator {
 public:
-    double calculate(double amount) const override {
+    double calculateTax(double amount) override {
         return amount * 0.18;
     }
 };
 
-class USTax : public TaxCalculator {
+class USTaxCalculator : public TaxCalculator {
 public:
-    double calculate(double amount) const override {
+    double calculateTax(double amount) override {
         return amount * 0.08;
     }
 };
 
-class UKTax : public TaxCalculator {
+class UKTaxCalculator : public TaxCalculator {
 public:
-    double calculate(double amount) const override {
+    double calculateTax(double amount) override {
         return amount * 0.12;
     }
 };
-
 // New region — added without modifying existing classes
 class GermanyTax : public TaxCalculator {
 public:
-    double calculate(double amount) const override {
+    double calculateTax(double amount) override {
         return amount * 0.15;
     }
 };
@@ -112,17 +115,23 @@ public:
 ### 3️⃣ Invoice Class (Uses Dependency Injection)
 
 ```cpp
+// Invoice class using dependency injection
 class Invoice {
 private:
-    const TaxCalculator& taxCalculator;
+    double amount;
+    TaxCalculator* taxCalculator;
 
 public:
-    Invoice(const TaxCalculator& calc) : taxCalculator(calc) {}
+    Invoice(double amount, TaxCalculator* taxCalculator) {
+        this->amount = amount;
+        this->taxCalculator = taxCalculator;
+    }
 
-    double generateInvoice(double amount) const {
-        return amount + taxCalculator.calculate(amount);
+    double getTotalAmount() {
+        return amount + taxCalculator->calculateTax(amount);
     }
 };
+
 ```
 
 ---
@@ -131,14 +140,32 @@ public:
 
 ```cpp
 int main() {
-    IndiaTax indiaTax;
-    Invoice invoice(indiaTax);
-    std::cout << "Total with tax (India): " << invoice.generateInvoice(1000.0) << "\n";
+    double amount = 1000.0;
 
-    GermanyTax germanyTax;
-    Invoice invoice2(germanyTax);
-    std::cout << "Total with tax (Germany): " << invoice2.generateInvoice(1000.0) << "\n";
+    // Create IndiaTaxCalculator object on the heap
+    TaxCalculator* indiaTax = new IndiaTaxCalculator();
 
+    // Invoice composes/uses a TaxCalculator (here IndiaTaxCalculator)
+    Invoice indiaInvoice(amount, indiaTax);
+    cout << "Total (India): ₹" << indiaInvoice.getTotalAmount() << endl;
+
+    // Clean up dynamically allocated object
+    delete indiaTax;
+
+    TaxCalculator* usTax = new USTaxCalculator();
+    Invoice usInvoice(amount, usTax);
+    cout << "Total (US): $" << usInvoice.getTotalAmount() << endl;
+    delete usTax;
+
+    TaxCalculator* ukTax = new UKTaxCalculator();
+    Invoice ukInvoice(amount, ukTax);
+    cout << "Total (UK): £" << ukInvoice.getTotalAmount() << endl;
+    delete ukTax;
+
+    TaxCalculator* germanyTax = new GermanyTaxCalculator();
+    Invoice germanyInvoice(amount, germanyTax);
+    cout << "Total (GERMANY): £" << germanyInvoice.getTotalAmount() << endl;
+    delete germanyTax;
     return 0;
 }
 ```
