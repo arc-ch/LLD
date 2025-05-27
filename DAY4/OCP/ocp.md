@@ -41,13 +41,14 @@ Over time, new regions (e.g., Germany) will be added.
 ```cpp
 class Invoice {
 public:
-    double calculateTax(const std::string& region, double amount) {
-        if (region == "India") return amount * 0.18;
-        else if (region == "US") return amount * 0.08;
-        else if (region == "UK") return amount * 0.12;
-        else return amount; // No tax
+    double calculateTotal(const std::string& region, double amount) {
+        if (region == "India") return amount + amount * 0.18;
+        else if (region == "US") return amount + amount * 0.08;
+        else if (region == "UK") return amount + amount * 0.12;
+        else return amount; // No tax for unknown regions
     }
 };
+
 ```
 
 ### ❌ Problems:
