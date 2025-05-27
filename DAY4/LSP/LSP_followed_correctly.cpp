@@ -140,6 +140,12 @@ int main() {
 }
 
 
-    
+// 🧠 Why This Follows LSP
+// ✅ WithdrawableAccount* savings = new SavingAccount();
+// You are relying only on the behavior guaranteed by the interface, not on internal details.
+
+// ✅ BankClient doesn’t care what kind of account it’s dealing with — as long as the contract (deposit() or withdraw()) is respected.
+
+// ❌ No need for typeid, dynamic_cast, or branching — so no LSP violation.
     
     
