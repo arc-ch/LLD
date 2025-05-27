@@ -102,7 +102,7 @@ public:
     }
 };
 // New region — added without modifying existing classes
-class GermanyTax : public TaxCalculator {
+class GermanyTaxCalculator : public TaxCalculator {
 public:
     double calculateTax(double amount) override {
         return amount * 0.15;
