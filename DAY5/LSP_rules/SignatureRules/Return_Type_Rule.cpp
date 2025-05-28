@@ -1,6 +1,6 @@
 #include <iostream>
 
-using namespace std;
+using namespace std:
 
 // Return Type Rule : 
 // Subtype overriden method return type should be either identical 
