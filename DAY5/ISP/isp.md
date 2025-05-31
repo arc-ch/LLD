@@ -5,7 +5,7 @@
 
 The **Interface Segregation Principle (ISP)** is one of the five **SOLID** principles of object-oriented programming. These principles help us write **clean**, **scalable**, and **maintainable** code.
 
----
+
 
 ## 🧠 Definition
 
@@ -140,4 +140,3 @@ The **Interface Segregation Principle** is about giving **each class only what i
 > ❌ Fat interfaces are bad.
 > ✅ Slim, purpose-specific interfaces are good.
 
-cts.
